@@ -7,8 +7,9 @@ import {
   signInWithCredential,
   onAuthStateChanged,
 } from "firebase/auth";
-import { auth } from "./config/FirebaseConfig"; // Firebase config
+import { auth } from "../../config/FirebaseConfig"; // Firebase config
 import * as WebBrowser from "expo-web-browser";
+import Constants from "expo-constants";
 
 WebBrowser.maybeCompleteAuthSession();
 
@@ -16,6 +17,8 @@ WebBrowser.maybeCompleteAuthSession();
 const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID;
 const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET;
 const REDIRECT_URI = process.env.GITHUB_REDIRECT_URI;
+const GOOGLE_AUTHORIZATION_END_POINT =
+  process.env.GITHUB_AUTHORIZATION_END_POINT;
 
 const githubDiscovery = {
   authorizationEndpoint: process.env.GITHUB_AUTHORIZATION_END_POINT,
@@ -23,8 +26,9 @@ const githubDiscovery = {
 
 // Google OAuth Configuration
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
+const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
 
-export default function App() {
+const FirebaseAuthComp = () => {
   const [user, setUser] = useState(null);
 
   // GitHub Auth Request
@@ -47,7 +51,7 @@ export default function App() {
         responseType: "code",
       },
       {
-        authorizationEndpoint: process.env.GOOGLE_AUTHORIZATION_END_POINT,
+        authorizationEndpoint: GOOGLE_AUTHORIZATION_END_POINT,
       }
     );
 
@@ -59,7 +63,7 @@ export default function App() {
         body: JSON.stringify({
           code,
           client_id: GOOGLE_CLIENT_ID,
-          client_secret: process.env.GOOGLE_CLIENT_SECRET,
+          client_secret: GOOGLE_CLIENT_SECRET,
           redirect_uri: REDIRECT_URI,
           grant_type: "authorization_code",
         }),
@@ -146,11 +150,23 @@ export default function App() {
   }, []);
 
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+    <View
+      style={{
+        // justifyContent: "center",
+        alignItems: "center",
+        marginBottom: 20,
+      }}
+    >
       {user ? (
         <Text>Welcome, {user.displayName}</Text>
       ) : (
-        <>
+        <View
+          style={{
+            justifyContent: "space-between",
+            flexDirection: "column",
+            gap: 20,
+          }}
+        >
           <Button
             title="Sign in with GitHub"
             onPress={() => promptGitHubSignIn()}
@@ -159,8 +175,10 @@ export default function App() {
             title="Sign in with Google"
             onPress={() => promptGoogleSignIn()}
           />
-        </>
+        </View>
       )}
     </View>
   );
-}
+};
+
+export default FirebaseAuthComp;

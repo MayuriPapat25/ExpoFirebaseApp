@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 // import * as WebBrowser from "expo-web-browser";
+import { getFirestore } from "firebase/firestore";
 
 // Completes the authentication session (for web flow compatibility)
 // WebBrowser.maybeCompleteAuthSession();
@@ -19,5 +20,6 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app); // Use getAuth instead of initializeAuth
+export const db = getFirestore(app);
 
 export { auth };
