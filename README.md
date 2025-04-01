@@ -2,11 +2,11 @@
 
 Features
 
-🔐 Firebase Authentication integration
-🌐 Google Sign-In
-🐙 GitHub Sign-In
-📱 Works on iOS, Android, and Web
-⚡ Fast development with Expo
+Firebase Authentication integration
+Google Sign-In
+GitHub Sign-In
+Works on iOS, Android, and Web
+Fast development with Expo
 
 Prerequisites
 Before you begin, make sure you have the following:
