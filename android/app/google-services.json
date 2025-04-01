@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "548314967691",
+    "project_id": "expostarter-40148",
+    "storage_bucket": "expostarter-40148.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:548314967691:android:72b08b0aa9c8c453e9ae8e",
+        "android_client_info": {
+          "package_name": "com.expostarter.firebaseauth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "548314967691-en7un4qiug6cbeqm2jfin9gqjk5s7es6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.expostarter.firebaseauth",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "548314967691-35dgalkqgnd3mvtqnerfu8rbft3lq99n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_pAMs2vK5bXQY12qjDi7dobCvFjWOeD4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "548314967691-35dgalkqgnd3mvtqnerfu8rbft3lq99n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
